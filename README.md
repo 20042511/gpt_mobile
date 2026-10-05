@@ -102,3 +102,7 @@ For translations, we are using [Hosted Weblate](https://hosted.weblate.org/engag
 See [LICENSE](./LICENSE) for details.
 
 [F-Droid Icon License](https://gitlab.com/fdroid/artwork/-/blob/master/fdroid-logo-2015/README.md)
+
+
+---
+_Build triggered: 2026-10-05_
