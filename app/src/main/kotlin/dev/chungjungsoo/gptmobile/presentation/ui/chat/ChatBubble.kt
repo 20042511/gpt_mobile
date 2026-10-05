@@ -562,7 +562,7 @@ fun GPTMobileIcon(loading: Boolean) {
             .padding(start = 8.dp)
             .size(40.dp)
             .clip(RoundedCornerShape(40.dp))
-            .background(color = Color(0xFF00A67D)),
+            .background(color = Color(0xFF0EAD7C)),
         contentAlignment = Alignment.Center
     ) {
         if (loading) {
