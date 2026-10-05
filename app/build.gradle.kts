@@ -17,7 +17,7 @@ plugins {
 
 extensions.configure<ApplicationExtension> {
     namespace = "dev.chungjungsoo.gptmobile"
-    compileSdk = 37
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "dev.chungjungsoo.gptmobile"
