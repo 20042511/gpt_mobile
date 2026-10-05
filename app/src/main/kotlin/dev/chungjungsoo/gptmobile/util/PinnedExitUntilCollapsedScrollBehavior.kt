@@ -3,10 +3,8 @@ package dev.chungjungsoo.gptmobile.util
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.AnimationState
 import androidx.compose.animation.core.DecayAnimationSpec
-import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDecay
 import androidx.compose.animation.core.animateTo
-import androidx.compose.animation.core.spring
 import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarScrollBehavior
@@ -27,7 +25,7 @@ import kotlin.math.abs
 fun pinnedExitUntilCollapsedScrollBehavior(
     state: TopAppBarState = rememberTopAppBarState(),
     canScroll: () -> Boolean = { true },
-    snapAnimationSpec: AnimationSpec<Float>? = spring(stiffness = Spring.StiffnessMediumLow),
+    snapAnimationSpec: AnimationSpec<Float>? = null,
     flingAnimationSpec: DecayAnimationSpec<Float>? = rememberSplineBasedDecay()
 ): TopAppBarScrollBehavior = PinnedExitUntilCollapsedScrollBehavior(
     state = state,
@@ -52,10 +50,12 @@ private class PinnedExitUntilCollapsedScrollBehavior(
 
                 val prevHeightOffset = state.heightOffset
                 state.heightOffset += available.y
-                return if (prevHeightOffset != state.heightOffset) {
+                val consumedHeight = state.heightOffset - prevHeightOffset
+                return if (consumedHeight != 0f) {
                     // We're in the middle of top app bar collapse or expand.
-                    // Consume only the scroll on the Y axis.
-                    available.copy(x = 0f)
+                    // Consume only the amount actually applied to the app bar height, so the
+                    // remainder keeps flowing to the scrollable content instead of being lost.
+                    Offset(0f, consumedHeight)
                 } else {
                     Offset.Zero
                 }
