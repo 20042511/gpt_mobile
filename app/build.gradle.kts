@@ -20,7 +20,7 @@ extensions.configure<ApplicationExtension> {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "dev.chungjungsoo.gptmobile"
+        applicationId = "com.chathub.app"
         minSdk = 26
         targetSdk = 34
         versionCode = 25
