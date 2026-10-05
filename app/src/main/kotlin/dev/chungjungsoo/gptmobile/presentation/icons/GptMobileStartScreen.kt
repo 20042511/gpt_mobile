@@ -606,7 +606,7 @@ val GptMobileStartScreen: ImageVector
                 close()
             }
             path(
-                fill = SolidColor(Color(0xFF00a67d)),
+                fill = SolidColor(Color(0xFF0EAD7C)),
                 stroke = SolidColor(Color(0xFF45464f)),
                 strokeLineWidth = 7.708525f,
                 strokeLineCap = Butt,
